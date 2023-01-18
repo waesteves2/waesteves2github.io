@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cálculo de frete</title>
+
+<body> 
+
+  <link rel="stylesheet" href="./styly.css">
+
+
+
+  <!-- Crie uma tabela para exibir os dados de entrada e saída -->
+  <table>
+    <!-- Adicione uma linha de cabeçalho -->
+    <tr>
+      <th>Volumes</th>
+      <th>Peso (kg)</th>
+      <th>Valor da NF</th>
+      <th>Estado</th>
+      <th>Valor do frete</th>
+    </tr>
+    <!-- Adicione uma linha de entrada de dados -->
+
+    <br>
+    <br>
+    <br>
+   
+   
+
+    <tr>
+      <td><input type="number" id="qtd_volumes" min="1" max="5"></td>
+      <td><input type="number" id="peso" min="0" max="100"></td>
+      <td><input type="number" id="valor_nf" min="0" max="3500"></td>
+      <td><input type="text" id="estado"></td>
+      <td id="valor_frete"></td>
+    </tr>
+
+  </table>
+  <!-- Adicione um botão para iniciar o cálculo -->
+  <br>
+  <button id="pulsing-button">Calcular</button>
+
+  <!-- Adicione um script para calcular o frete -->
+  <script>
+    // Obtenha a referência aos elementos da tabela
+    
+    function diminuirTamanho(elemento) {
+      elemento.style.width = "70px";
+      elemento.style.height = "20px";
+    }
+
+    var qtdVolumes = document.getElementById("qtd_volumes");
+    var peso = document.getElementById("peso");
+    var valorNF = document.getElementById("valor_nf");
+    var estado = document.getElementById("estado");
+    var valorFrete = document.getElementById("valor_frete");
+
+    diminuirTamanho(qtdVolumes);
+    diminuirTamanho(peso);
+    diminuirTamanho(valorNF);
+    diminuirTamanho(estado);
+    diminuirTamanho(valorFrete);
+
+    qtdVolumes.style.borderRadius = "20px";  /* arredonda as bordas do input */
+    peso.style.borderRadius = "20px";
+    valorNF.style.borderRadius = "20px";
+    estado.style.borderRadius = "20px";
+    valorFrete.style.borderRadius = "20px"
+
+
+    // Adicione um evento de clique ao botão de cálculo
+    var btnCalcular = document.getElementById("pulsing-button");
+    btnCalcular.addEventListener("click", function () {
+      // Obtenha os valores de entrada
+      var qtdVolumesValue = qtdVolumes.value;
+      var pesoValue = peso.value;
+      var valorNFValue = valorNF.value;
+      var estadoValue = estado.value;
+      // Inicialize o valor do frete como zero
+      var valorFreteValue = 0;
+
+      // Adicione o valor do frete com base na quantidade de volumes e no estado
+      if (estadoValue === "AC") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 210;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 306;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 338;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 368;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 402;
+        }
+      } else if (estadoValue === "DF") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 85;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 95;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 105;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 115;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 125;
+        }
+      } else if (estadoValue === "ES") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 152;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 206;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 220;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 246;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 276;
+        }
+      } else if (estadoValue === "GO") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 85;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 95;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 105;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 115;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 125;
+        }
+      } else if (estadoValue === "MS") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 202;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 240;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 252;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 290;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 328;
+        }
+      } else if (estadoValue === "MT") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 202;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 240;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 252;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 290;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 328;
+        }
+      } else if (estadoValue === "MG") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 75;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 85;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 95;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 105;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 120;
+        }
+      } else if (estadoValue === "PR") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 78;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 96;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 102;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 128;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 148;
+        }
+      } else if (estadoValue === "RJ") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 156;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 166;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 180;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 210;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 248;
+        }
+      } else if (estadoValue === "RS") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 100;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 120;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 130;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 140;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 160;
+        }
+      } else if (estadoValue === "RO") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 210;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 306;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 338;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 368;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 402;
+        }
+      } else if (estadoValue === "SC") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 100;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 110;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 125;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 135;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 145;
+        }
+      } else if (estadoValue === "PRAIA GRANDE") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 65;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 75;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 85;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 95;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 115;
+        }
+      } else if (estadoValue === "SP") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 70;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 80;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 90;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 100;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 120;
+        }
+      } else if (estadoValue === "INTERIOR") {
+        if (qtdVolumesValue == 1) {
+          valorFreteValue = 48;
+        } else if (qtdVolumesValue == 2) {
+          valorFreteValue = 58;
+        } else if (qtdVolumesValue == 3) {
+          valorFreteValue = 68;
+        } else if (qtdVolumesValue == 4) {
+          valorFreteValue = 78;
+        } else if (qtdVolumesValue == 5) {
+          valorFreteValue = 90;
+        }
+      }
+
+
+
+      // Atualize o valor do frete na tabela
+      valorFrete.innerHTML = valorFreteValue + " R$";
+    });
+
+  </script>
+</body>
+
+</html>
